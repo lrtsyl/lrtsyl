@@ -2,14 +2,14 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: '0 */12 * * *'    # every 12 hours
+    - cron: '0 */12 * * *' # every 12 hours
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   build:
@@ -23,13 +23,15 @@ jobs:
           fetch-depth: 0
 
       - name: Prepare dist folder
-        run: mkdir -p dist && rm -rf dist/*
+        run: |
+          rm -rf dist && mkdir dist
 
       - name: Generate snake animation & SVG
         uses: Platane/snk@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake.gif
@@ -37,18 +39,14 @@ jobs:
 
       - name: Verify generated files
         run: |
-          echo "Generated files in dist:"
-          ls -la dist
-          # Fail if expected files are missing
-          test -f dist/github-contribution-grid-snake.svg || (echo "SVG file missing!"; exit 1)
-          test -f dist/github-contribution-grid-snake.gif || (echo "GIF file missing!"; exit 1)
+          echo "→ dist contains:" && ls -l dist
+          test -f dist/github-contribution-grid-snake.svg
+          test -f dist/github-contribution-grid-snake.gif
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
-          keep_history: false
-          force_orphan: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
