@@ -2,7 +2,7 @@ name: Update Contribution Snake
 
 on:
   schedule:
-    - cron: '0 */12 * * *'    # every 12 hours
+    - cron: '0 */12 * * *'   # every 12 hours
   workflow_dispatch:
 
 permissions:
@@ -11,9 +11,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -21,7 +20,7 @@ jobs:
       - name: Prepare dist folder
         run: mkdir -p dist
 
-      - name: Generate snake graphic
+      - name: Generate snake images
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -31,21 +30,6 @@ jobs:
             dist/github-contribution-grid-snake.gif
           args: --include-private
 
-      - name: Debug: show what was generated
-        run: ls -la dist
-
-      - name: Create index.html
-        run: |
-          cat << 'EOF' > dist/index.html
-          <!doctype html>
-          <html>
-            <head><meta charset="utf-8"><title>GitHub Contribution Snake</title></head>
-            <body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh">
-              <img src="github-contribution-grid-snake.gif" alt="GitHub Contributions Snake"/>
-            </body>
-          </html>
-          EOF
-
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
@@ -53,6 +37,3 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Verify remote branches
-        run: git ls-remote --heads origin
