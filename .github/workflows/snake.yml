@@ -2,7 +2,7 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */12 * * *'    # every 12 hours
   workflow_dispatch:
   push:
     branches: [ main ]
@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -25,21 +25,24 @@ jobs:
       - name: Prepare dist folder
         run: rm -rf dist && mkdir dist
 
-      - name: Generate snake animation & SVG
+      - name: Generate both light & dark snake
         uses: platane/snk@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
+            # light mode
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake.gif
-          include_private: true
+            # dark mode (query string sets the dark palette)
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake-dark.gif?palette=github-dark
+          args: --include-private
 
       - name: Debug dist contents
         run: |
-          echo "→ dist contains:"
-          ls -la dist
+          echo "→ dist contains:" && ls -1 dist
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
