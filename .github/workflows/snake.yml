@@ -35,8 +35,10 @@ jobs:
             dist/github-contribution-grid-snake.gif
           args: --include-private
 
-      - name: Debug & verify generated files
-        run: ls -la dist
+      - name: Debug dist contents
+        run: |
+          echo "→ dist contains:"
+          ls -la dist
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
@@ -45,3 +47,6 @@ jobs:
           build_dir:      dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List remote branches
+        run: git ls-remote --heads origin
