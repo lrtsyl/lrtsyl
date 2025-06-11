@@ -62,3 +62,8 @@ summary:
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?text=Thanks+for+visiting!&animation=slideIn&type=waving&color=gradient&height=80&cache=bust&section=footer" alt="Wavy footer"/>
 </p>
+
+<!-- ────────────────── Contribution Graph Snake ────────────────── -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/dist/github-contribution-grid-snake.gif" alt="Animated GitHub contributions snake"/>
+</p>
