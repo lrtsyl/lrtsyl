@@ -65,5 +65,5 @@ summary:
 
 <!-- ────────────────── Contribution Graph Snake ────────────────── -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lrtsyl/output/dist/github-contribution-grid-snake.svg" alt="Commit-snake graph"/>
+  <img src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/dist/github-contribution-grid-snake.svg" alt="Commit-snake graph"/>
 </p>
