@@ -5,7 +5,7 @@ on:
     - cron: '0 */12 * * *' # every 12 hours
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -23,8 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Prepare dist folder
-        run: |
-          rm -rf dist && mkdir dist
+        run: rm -rf dist && mkdir dist
 
       - name: Generate snake animation & SVG
         uses: Platane/snk@v3
@@ -37,11 +36,10 @@ jobs:
             dist/github-contribution-grid-snake.gif
           args: --include-private
 
-      - name: Verify generated files
+      - name: Debug dist contents
         run: |
-          echo "→ dist contains:" && ls -l dist
-          test -f dist/github-contribution-grid-snake.svg
-          test -f dist/github-contribution-grid-snake.gif
+          echo "→ dist contains:"
+          ls -la dist
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
