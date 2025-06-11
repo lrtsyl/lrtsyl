@@ -23,6 +23,8 @@ jobs:
         with:
           github_user_name: lrtsyl
           svg_out_path: dist/github-contribution-grid-snake.svg
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          include_private: true
 
       - name: Deploy snake to output branch
         uses: crazy-max/ghaction-github-pages@v2.1.3
