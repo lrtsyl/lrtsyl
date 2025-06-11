@@ -30,17 +30,18 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          svg_out_path: dist/github-contribution-grid-snake.svg
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          private_days: true
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake.gif
+          args: --include-private
 
       - name: Verify generated files
         run: |
           echo "Generated files in dist:"
           ls -la dist
           # Fail if expected files are missing
-          test -f dist/github-contribution-grid-snake.svg
-          test -f dist/github-contribution-grid-snake.gif
+          test -f dist/github-contribution-grid-snake.svg || (echo "SVG file missing!"; exit 1)
+          test -f dist/github-contribution-grid-snake.gif || (echo "GIF file missing!"; exit 1)
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
