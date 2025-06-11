@@ -2,7 +2,7 @@ name: Update Contribution Snake
 
 on:
   schedule:
-    - cron: '0 */12 * * *'   # every 12 hours
+    - cron: '0 */12 * * *'    # every 12 hours
   workflow_dispatch:
 
 permissions:
@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -20,10 +20,10 @@ jobs:
       - name: Prepare dist folder
         run: mkdir -p dist
 
-      - name: Generate snake images
+      - name: Generate snake graphic
         uses: Platane/snk@v3
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: lrtsyl
           github_token:      ${{ secrets.GITHUB_TOKEN }}
           outputs: |
             dist/github-contribution-grid-snake.svg
