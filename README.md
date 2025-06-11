@@ -13,7 +13,7 @@
   <a href="https://github.com/lrtsyl">
     <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"/>
   </a>
-  <a href="https://www.linkedin.com/in/sylvia-liu-rt/">
+  <a href="https://www.linkedin.com/in/sylvia-liu-rt/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
 </p>
