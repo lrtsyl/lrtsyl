@@ -56,14 +56,12 @@ summary:
   <img src="https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white" alt="Canva"/>
 </p>
 
-<br>
+<!-- ────────────────── Contribution Graph Snake ────────────────── -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-contribution-grid-snake.gif" alt="Animated GitHub contributions snake"/>
+</p>
 
 <!-- ────────────────── Animated Wavy Footer ────────────────── -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?text=Thanks+for+visiting!&animation=slideIn&type=waving&color=gradient&height=80&cache=bust&section=footer" alt="Wavy footer"/>
-</p>
-
-<!-- ────────────────── Contribution Graph Snake ────────────────── -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/dist/github-contribution-grid-snake.gif" alt="Animated GitHub contributions snake"/>
 </p>
