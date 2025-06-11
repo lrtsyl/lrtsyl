@@ -23,30 +23,31 @@ jobs:
           fetch-depth: 0
 
       - name: Prepare dist folder
-        run: mkdir -p dist
+        run: mkdir -p dist && rm -rf dist/*
 
       - name: Generate snake animation & SVG
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token:      ${{ secrets.GITHUB_TOKEN }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake.gif
-          args: --include-private
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          svg_out_path: dist/github-contribution-grid-snake.svg
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          private_days: true
 
-      - name: Debug dist contents
+      - name: Verify generated files
         run: |
-          echo "→ dist contains:"
+          echo "Generated files in dist:"
           ls -la dist
+          # Fail if expected files are missing
+          test -f dist/github-contribution-grid-snake.svg
+          test -f dist/github-contribution-grid-snake.gif
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
-          build_dir:      dist
+          build_dir: dist
+          keep_history: false
+          force_orphan: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: List remote branches
-        run: git ls-remote --heads origin
