@@ -9,40 +9,30 @@ on:
 
 permissions:
   contents: write
-  actions: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Prepare dist folder
-        run: rm -rf dist && mkdir dist
-
       - name: Generate light & dark snake
-        uses: platane/snk@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             # light mode
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake.gif
-            # dark mode (query string sets the dark palette)
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            dist/github-contribution-grid-snake-dark.gif?palette=github-dark
-          args: --include-private
-
-      - name: Debug dist contents
-        run: |
-          echo "→ dist contains:" && ls -1 dist
+            dist/github-snake.svg
+            dist/github-snake.gif
+            # dark mode
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-dark.gif?palette=github-dark :contentReference[oaicite:2]{index=2}
+        args: --include-private
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
