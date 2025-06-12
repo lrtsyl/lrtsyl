@@ -31,8 +31,7 @@ jobs:
             dist/github-snake.gif
             # dark mode
             dist/github-snake-dark.svg?palette=github-dark
-            dist/github-snake-dark.gif?palette=github-dark :contentReference[oaicite:2]{index=2}
-        args: --include-private
+            dist/github-snake-dark.gif?palette=github-dark
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
