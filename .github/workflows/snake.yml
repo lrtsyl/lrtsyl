@@ -28,10 +28,8 @@ jobs:
           outputs: |
             # light mode
             dist/github-snake.svg
-            dist/github-snake.gif
             # dark mode
             dist/github-snake-dark.svg?palette=github-dark
-            dist/github-snake-dark.gif?palette=github-dark
 
       - name: Deploy to output branch
         uses: crazy-max/ghaction-github-pages@v4
