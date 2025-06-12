@@ -25,7 +25,7 @@ jobs:
       - name: Prepare dist folder
         run: rm -rf dist && mkdir dist
 
-      - name: Generate both light & dark snake
+      - name: Generate light & dark snake
         uses: platane/snk@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
