@@ -62,15 +62,15 @@ summary:
     <!-- Dark-mode GIF -->
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake-dark.gif?palette=github-dark" />
+      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake-dark.svg" />
     <!-- Light-mode GIF -->
     <source
       media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.gif" />
+      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.svg" />
     <!-- Fallback -->
     <img
       alt="GitHub contribution snake"
-      src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.gif" />
+      src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.svg" />
   </picture>
 </p>
 
