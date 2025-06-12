@@ -58,7 +58,20 @@ summary:
 
 <!-- ────────────────── Contribution Graph Snake ────────────────── -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-contribution-grid-snake.gif" alt="Animated GitHub contributions snake"/>
+  <picture>
+    <!-- Dark-mode GIF -->
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake-dark.gif?palette=github-dark" />
+    <!-- Light-mode GIF -->
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.gif" />
+    <!-- Fallback -->
+    <img
+      alt="GitHub contribution snake"
+      src="https://raw.githubusercontent.com/lrtsyl/lrtsyl/output/github-snake.gif" />
+  </picture>
 </p>
 
 <!-- ────────────────── Animated Wavy Footer ────────────────── -->
