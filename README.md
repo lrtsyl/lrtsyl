@@ -25,16 +25,15 @@
 ```yaml
 name:           Sylvia Liu
 located_in:     New York, New York, USA
-current_role:   Undergraduate Student
+current_role:   Quantitative Analyst
 education:
-  institution:  University of Rochester
-  majors:       Business Finance, Data Science
-  minor:        Japanese
+  institution:  University of Rochester '26
+  degree:       B.S. in Finance & Data Science (Minor in Japanese)
 summary:
-  I’m Sylvia, pursuing a dual BS in Business Finance & Data Science
-  with a minor in Japanese. Born in China and raised in the Philippines,
-  I bring a global perspective and strong analytical foundation—
-  bridging data-driven insights with business strategy.
+  Finance & Data Science graduate focused on financial analytics,
+  risk modeling, quantitative trading, and data engineering.
+  Born in China and raised in the Philippines, I bring a global
+  perspective to turning complex data into business decisions.
 ```
 
 ## Some Tools I Have Used and Learned
